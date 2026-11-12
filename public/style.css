@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -5,177 +7,220 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #10111b;
-    color: #f5f5f7;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #100b20, #1b102b, #0c1428);
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 22px 8%;
-    background: #191a28;
-    border-bottom: 1px solid #303143;
+    background: rgba(15, 10, 30, 0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
 }
 
 .logo {
-    color: #a78bfa;
-    font-size: 25px;
-    font-weight: bold;
+    color: #ff8ab5;
+    font-size: 23px;
+    font-weight: 800;
     text-decoration: none;
 }
 
 .nav-links {
     display: flex;
-    gap: 24px;
+    gap: 30px;
 }
 
 .nav-links a {
-    color: #e3e3ee;
+    color: #ddd;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: #a78bfa;
+    color: #ff83b2;
 }
 
-.hero {
-    flex: 1;
-    text-align: center;
-    padding: 120px 20px;
-    background:
-        radial-gradient(ellipse at top, #302354 0%, #10111b 65%);
-}
-
-.eyebrow {
-    color: #a78bfa;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 18px;
-}
-
-.hero h1,
-.page-heading h1 {
-    font-size: clamp(32px, 6vw, 56px);
-    margin-bottom: 18px;
-}
-
-.tagline {
-    font-size: 22px;
-    color: #c4b5fd;
-    margin-bottom: 16px;
-}
-
-.description {
-    color: #b5b5c6;
-    line-height: 1.7;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    background: #8b5cf6;
-    color: white;
-    text-decoration: none;
-    padding: 14px 24px;
-    border-radius: 8px;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.button:hover {
-    background: #7c3aed;
-    transform: translateY(-2px);
-}
+/* SONGS PAGE */
 
 .songs-page {
-    flex: 1;
-    padding: 55px 8%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 65px auto;
 }
+
+/* HEADING */
 
 .page-heading {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.page-heading p:last-child {
-    color: #b5b5c6;
+.eyebrow {
+    color: #ff83b2;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
+
+.page-heading h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.page-heading > p:last-child {
+    color: #bdb4cf;
+}
+
+/* SHASHANK NAME */
+
+.name-section {
+    text-align: center;
+    margin: 65px auto;
+    padding: 35px 15px;
+}
+
+.special-name {
+    font-size: clamp(38px, 9vw, 100px);
+    font-weight: 900;
+    letter-spacing: clamp(3px, 1.5vw, 15px);
+    background: linear-gradient(
+        90deg,
+        #ff75a0,
+        #c084fc,
+        #70d6ff,
+        #ff75a0
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 5s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(255, 117, 160, 0.25));
+}
+
+@keyframes gradientMove {
+    to {
+        background-position: 250% center;
+    }
+}
+
+.name-caption {
+    color: #c7b9d9;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* SONG GRID */
 
 .song-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
 }
 
+/* SONG CARDS */
+
 .song-card {
-    background: #1b1c2b;
-    border: 1px solid #303143;
-    border-radius: 14px;
-    padding: 25px;
-    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 35px 25px;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.09),
+        rgba(255,255,255,0.025)
+    );
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transition: 0.35s ease;
 }
 
 .song-card:hover {
-    transform: translateY(-5px);
-    border-color: #8b5cf6;
+    transform: translateY(-9px);
+    border-color: rgba(255,117,160,0.6);
+    box-shadow: 0 15px 40px rgba(255,117,160,0.13);
 }
 
-.music-icon {
-    background: #302354;
-    color: #c4b5fd;
-    display: grid;
-    place-items: center;
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    font-size: 32px;
-    margin-bottom: 22px;
+.letter {
+    font-size: 75px;
+    line-height: 1.2;
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ff75a0, #b388ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .genre {
-    color: #a78bfa;
-    font-size: 13px;
-    margin-bottom: 10px;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(179,136,255,0.13);
+    color: #d5baff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .song-card h2 {
     font-size: 21px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .artist {
-    color: #b5b5c6;
-    line-height: 1.5;
+    color: #bdb4cf;
+    font-size: 13px;
 }
+
+.song-number {
+    margin-top: 25px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ff83b2;
+}
+
+/* FOOTER */
 
 footer {
-    background: #191a28;
-    color: #aaaabd;
     text-align: center;
-    padding: 22px;
-    margin-top: auto;
+    padding: 30px 15px;
+    margin-top: 70px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: #a99dbd;
+    font-size: 13px;
 }
 
-@media (max-width: 800px) {
-    .song-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+/* RESPONSIVE */
 
-    .hero {
-        padding: 85px 20px;
-    }
-}
+@media (max-width: 650px) {
 
-@media (max-width: 520px) {
     .navbar {
-        flex-direction: column;
-        gap: 18px;
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 15px;
     }
 
     .song-grid {
@@ -183,6 +228,195 @@ footer {
     }
 
     .songs-page {
-        padding: 40px 6%;
+        margin-top: 40px;
+    }
+
+    .name-section {
+        margin: 35px auto;
+    }
+}
+/* Attractive Typography */
+
+body {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+h1, .page-heading h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.song-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+/* ==========================
+   HOMEPAGE DESIGN
+========================== */
+
+.home-page {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.hero-section {
+    width: 100%;
+    max-width: 1050px;
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 25px;
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.09),
+        rgba(255,255,255,0.025)
+    );
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before,
+.hero-section::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+.hero-section::before {
+    background: #ff70b5;
+    top: -100px;
+    left: -80px;
+}
+
+.hero-section::after {
+    background: #9b78ff;
+    bottom: -100px;
+    right: -80px;
+}
+
+.hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+}
+
+.heart-animation {
+    font-size: 65px;
+    color: #ff8fc7;
+    margin-bottom: 18px;
+    animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+.hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    opacity: 0.75;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    display: block;
+    background: linear-gradient(90deg, #ff91c8, #c6a3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 570px;
+    margin: 0 auto 35px;
+    font-size: 16px;
+    line-height: 1.9;
+    opacity: 0.78;
+}
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: linear-gradient(100deg, #ff75b8, #a77bff);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(210, 100, 200, 0.3);
+    transition: 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(210, 100, 200, 0.45);
+}
+
+.explore-btn span {
+    font-size: 21px;
+}
+
+.hero-footer {
+    margin-top: 55px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    opacity: 0.55;
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        min-height: 500px;
+        padding: 45px 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-eyebrow {
+        letter-spacing: 2px;
     }
 }

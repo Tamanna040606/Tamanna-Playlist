@@ -1,71 +1,88 @@
-
 import express from "express";
 
 const app = express();
 const port = 3000;
 
-// Configure EJS as the template engine
+// Configure EJS
 app.set("view engine", "ejs");
 
-// Serve CSS and other static files
+// Serve CSS, images and other static files
 app.use(express.static("public"));
 
-// Dynamic homepage data
-const appName = "SoundWave";
-const tagline = "Your music, your mood, your world";
+// Website details
+const appName = "Tamanna Playlist";
+const tagline = "A playlist made with love ❤️";
 
-// Home route
+// Homepage
 app.get("/", (req, res) => {
     res.render("index", {
-        appName: 'janagam hemanth',
-        tagline: tagline
+        appName,
+        tagline
     });
 });
 
-
+// Personalised SHASHANK playlist
 const songs = [
     {
-        title: "Blinding Lights",
-        artist: "The Weeknd",
-        genre: "Pop"
-    },
-    {
+        letter: "S",
         title: "Shape of You",
         artist: "Ed Sheeran",
         genre: "Pop"
     },
     {
-        title: "Perfect",
-        artist: "Ed Sheeran",
+        letter: "H",
+        title: "Heat Waves",
+        artist: "Glass Animals",
+        genre: "Indie Pop"
+    },
+    {
+        letter: "A",
+        title: "Annange Love Agide",
+        artist: "Kannada",
         genre: "Romance"
     },
     {
-        title: "Believer",
-        artist: "Imagine Dragons",
-        genre: "Rock"
+        letter: "S",
+        title: "Saiba",
+        artist: "To be confirmed",
+        genre: "Romance"
     },
     {
-        title: "Kesariya",
-        artist: "Arijit Singh",
-        genre: "Bollywood"
+        letter: "H",
+        title: "Hrudyake Hedarike",
+        artist: "Kannada",
+        genre: "Romance"
     },
     {
-        title: "Naatu Naatu",
-        artist: "Rahul Sipligunj and Kaala Bhairava",
-        genre: "Telugu"
+        letter: "A",
+        title: "Aalochane",
+        artist: "Kannada",
+        genre: "Romance"
+    },
+    {
+        letter: "N",
+        title: "Nintalli Nilalaare",
+        artist: "Kannada",
+        genre: "Romance"
+    },
+    {
+        letter: "K",
+        title: "Kannale",
+        artist: "Kannada",
+        genre: "Romance"
     }
 ];
 
 // Songs page
 app.get("/songs", (req, res) => {
     res.render("songs", {
-        appName: appName,
-        songs: songs
+        appName,
+        tagline,
+        songs
     });
 });
 
-
 // Start server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`🎵 ${appName} running at http://localhost:${port}`);
 });
